@@ -1,9 +1,8 @@
-'use strict';
-import env from 'common/env';
-import { app, BrowserWindow } from 'electron';
-import * as path from 'path';
-import { format as formatUrl } from 'url';
-import initDevTools from './dev/initDevTools';
+"use strict";
+import env from "common/env";
+import { app, BrowserWindow } from "electron";
+import * as path from "path";
+import { format as formatUrl } from "url";
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow;
@@ -24,22 +23,26 @@ function createMainWindow() {
 
   if (env.isDevelopment) {
     url = `http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`;
-    initDevTools(window, true);
+    loaderWindow.webContents.openDevTools();
+    loaderWindow.webContents.on("devtools-opened", () => {
+      setImmediate(() => {
+        loaderWindow.focus();
+      });
+    });
   } else {
     url = formatUrl({
-      pathname: path.join(__dirname, 'index.html'),
-      protocol: 'file',
+      pathname: path.join(__dirname, "index.html"),
+      protocol: "file",
       slashes: true,
     });
-    initDevTools(window, true);
   }
 
-  window.on('error', (error) => {
+  window.on("error", (error) => {
     console.error({
       error,
     });
   });
-  window.on('closed', () => {
+  window.on("closed", () => {
     mainWindow = null;
   });
 
@@ -53,14 +56,14 @@ function runApp() {
   //
   // patcher.js
   //
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.webContents.send('call-foo');
+  mainWindow.webContents.on("did-finish-load", () => {
+    mainWindow.webContents.send("call-foo");
   });
   //
 }
 
 // create main BrowserWindow when electron is ready
-app.on('ready', () => {
+app.on("ready", () => {
   runApp();
 });
 
