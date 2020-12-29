@@ -32,8 +32,14 @@ module.exports = {
             .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
             .replace(/\\/g, "/");
 
-        const specialFiles = ["main.exe", "script.kom"];
-        if (specialFiles.some((v) => file.includes(v))) {
+        const specialFiles = ["main.exe", "stage/script.kom"];
+        if (
+          specialFiles.indexOf(
+            file
+              .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
+              .replace(/\\/g, "/")
+          ) > -1
+        ) {
           const hash = require("crypto")
             .createHash("sha1")
             .update(fs.readFileSync(file))
