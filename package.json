@@ -1,0 +1,50 @@
+{
+  "name": "gc-launcher-helper",
+  "productName": "Grand Chase Launcher Helper",
+  "author": "Gustavo Kei Amemiya",
+  "description": "Updater Helper",
+  "version": "0.0.001",
+  "fileAssociations": {
+    "description": "Updater Helper"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "npm run compile && electron-builder --publish always && node build/delete-old-releases.js",
+    "dist:dir": "npm run dist --dir -c.compression=store -c.mac.identity=null",
+    "build": "npm run compile && electron-builder"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "immutable": "^4.0.0-rc.12",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-react": "^7.12.10",
+    "electron": "11.1.1",
+    "electron-builder": "22.9.1",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-eslint": "^6.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "webpack": "^4.44.2"
+  },
+  "build": {
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico",
+      "publish": [
+        {
+          "provider": "github",
+          "repo": "gc-launcher-helper",
+          "owner": "gustavokei",
+          "private": false,
+          "releaseType": "release"
+        }
+      ]
+    }
+  }
+}
