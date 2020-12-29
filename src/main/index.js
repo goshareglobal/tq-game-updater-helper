@@ -23,10 +23,10 @@ function createMainWindow() {
 
   if (env.isDevelopment) {
     url = `http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`;
-    loaderWindow.webContents.openDevTools();
-    loaderWindow.webContents.on("devtools-opened", () => {
+    window.webContents.openDevTools();
+    window.webContents.on("devtools-opened", () => {
       setImmediate(() => {
-        loaderWindow.focus();
+        window.focus();
       });
     });
   } else {
