@@ -16,6 +16,8 @@ function createMainWindow() {
     height: 100,
     transparent: true,
     frame: true,
+    fullscreenable: false,
+    maximizable: false,
     resizable: false,
   });
 
