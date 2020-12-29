@@ -32,7 +32,7 @@ module.exports = {
             .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
             .replace(/\\/g, "/");
 
-        const specialFiles = ["main.exe"];
+        const specialFiles = ["main.exe", "script.kom"];
         if (specialFiles.some((v) => file.includes(v))) {
           const hash = require("crypto")
             .createHash("sha1")
