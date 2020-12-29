@@ -10,7 +10,7 @@ module.exports = {
     // 'getFiles' Function
     //
     const path = require("path");
-    async function getFiles(dir, fileList = []) {
+    const getFiles = async (dir, fileList = []) => {
       const fs = require("fs").promises;
       const files = await fs.readdir(dir);
       for (const file of files) {
@@ -20,14 +20,14 @@ module.exports = {
         else fileList.push(path.join(dir, file));
       }
       return fileList;
-    }
+    };
     //
 
     //
     // Compare local/remote files
     //
     getFiles(process.env.PORTABLE_EXECUTABLE_DIR + "\\").then((res) => {
-      res.forEach(function (file) {
+      res.forEach((file) => {
         const size = fs.statSync(file).size;
         const hash = require("crypto")
           .createHash("sha1")
@@ -40,7 +40,7 @@ module.exports = {
             .replace(/\\/g, "/");
         file = localArray.push({ file, size, hash, url });
 
-        localArray.forEach(function (e) {
+        localArray.forEach((e) => {
           e.file = e.file.replace(
             process.env.PORTABLE_EXECUTABLE_DIR + "\\",
             ""
