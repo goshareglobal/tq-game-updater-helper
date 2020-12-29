@@ -1,12 +1,10 @@
-import { hot } from 'react-hot-loader/root';
-
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
-  const { foo } = require('./patcher.js');
-  const { ipcRenderer } = require('electron');
-  ipcRenderer.on('call-foo', () => {
+  const { foo } = require("./patcher.js");
+  const { ipcRenderer } = require("electron");
+  ipcRenderer.on("call-foo", () => {
     foo();
   });
 
