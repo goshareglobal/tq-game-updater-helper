@@ -26,6 +26,7 @@ module.exports = {
     //
     // Compare local/remote files
     //
+    const { ipcRenderer } = require("electron");
     getFiles(process.env.PORTABLE_EXECUTABLE_DIR + "\\").then((res) => {
       res.forEach((file) => {
         const size = fs.statSync(file).size;
@@ -61,7 +62,9 @@ module.exports = {
 
       console.log("localArray: " + JSON.stringify(localArray));
 
-      // const remote = require('electron').remote;
+      // done
+      document.getElementById("LoaderContent").innerHTML = "JSON ready!";
+      // const remote = require("electron").remote;
       // var window = remote.getCurrentWindow();
       // window.close();
     });
