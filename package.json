@@ -3,7 +3,7 @@
   "productName": "Grand Chase Launcher Helper",
   "author": "Gustavo Kei Amemiya",
   "description": "Updater Helper",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "fileAssociations": {
     "description": "Updater Helper"
   },
@@ -37,6 +37,7 @@
     "win": {
       "artifactName": "Grand-Chase-Launcher-Helper.${ext}",
       "target": "portable",
+      "requestedExecutionLevel": "highestAvailable",
       "icon": "build/icon.ico",
       "publish": [
         {
