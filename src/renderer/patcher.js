@@ -49,7 +49,7 @@ module.exports = {
         });
 
         let valuesToRemove = [
-          "Grand Chase Launcher Helper.exe",
+          "Grand-Chase-Launcher-Helper.exe",
           "gc-launcher.json",
         ];
         localArray = localArray.filter((i) => !valuesToRemove.includes(i.file));
