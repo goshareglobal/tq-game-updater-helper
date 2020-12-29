@@ -52,6 +52,7 @@ module.exports = {
 
         const valuesToRemove = [
           "Grand-Chase-Launcher-Helper",
+          "Grand Chase Launcher Helper",
           "gc-launcher.json",
         ];
         localArray.forEach((e, i) => {
