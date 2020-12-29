@@ -1,10 +1,7 @@
 module.exports = {
   foo: () => {
-    //
-    // Files Arrays
-    //
+    const fs = require("fs");
     let localArray = [];
-    //
 
     //
     // 'getFiles' Function
@@ -24,35 +21,42 @@ module.exports = {
     //
 
     //
-    // Compare local/remote files
+    // Generate JSON
     //
-    const { ipcRenderer } = require("electron");
     getFiles(process.env.PORTABLE_EXECUTABLE_DIR + "\\").then((res) => {
       res.forEach((file) => {
         const size = fs.statSync(file).size;
-        const hash = require("crypto")
-          .createHash("sha1")
-          .update(fs.readFileSync(file))
-          .digest("base64");
         const url =
           "https://storage.googleapis.com/gc-client/gc-client/" +
           file
             .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
             .replace(/\\/g, "/");
-        file = localArray.push({ file, size, hash, url });
 
-        localArray.forEach((e) => {
+        const specialFiles = ["main.exe"];
+        if (specialFiles.some((v) => file.includes(v))) {
+          const hash = require("crypto")
+            .createHash("sha1")
+            .update(fs.readFileSync(file))
+            .digest("base64");
+
+          file = localArray.push({ file, size, hash, url });
+        } else {
+          file = localArray.push({ file, size, url });
+        }
+
+        const valuesToRemove = [
+          "Grand-Chase-Launcher-Helper",
+          "gc-launcher.json",
+        ];
+        localArray.forEach((e, i) => {
+          localArray = localArray.filter(
+            ({ file }) => !file.includes(valuesToRemove[i])
+          );
           e.file = e.file.replace(
             process.env.PORTABLE_EXECUTABLE_DIR + "\\",
             ""
           );
         });
-
-        let valuesToRemove = [
-          "Grand-Chase-Launcher-Helper.exe",
-          "gc-launcher.json",
-        ];
-        localArray = localArray.filter((i) => !valuesToRemove.includes(i.file));
 
         fs.writeFileSync(
           process.env.PORTABLE_EXECUTABLE_DIR + "\\gc-launcher.json",
@@ -60,21 +64,9 @@ module.exports = {
         );
       });
 
-      console.log("localArray: " + JSON.stringify(localArray));
-
-      // done
+      // Done
       document.getElementById("LoaderContent").innerHTML = "JSON ready!";
-      // const remote = require("electron").remote;
-      // var window = remote.getCurrentWindow();
-      // window.close();
     });
-    //
-
-    //
-    // Run Everything
-    //
-    const fs = require("fs");
-    getFiles();
     //
   },
 };
