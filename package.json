@@ -3,7 +3,7 @@
   "productName": "Electron Game Updater Helper",
   "author": "Gustavo Kei Amemiya",
   "description": "Updater Helper",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "fileAssociations": {
     "description": "Updater Helper"
   },
@@ -33,6 +33,7 @@
     "webpack": "^4.44.2"
   },
   "build": {
+    "artifactName": "${productName}.${ext}",
     "win": {
       "icon": "build/icon.png",
       "target": [
