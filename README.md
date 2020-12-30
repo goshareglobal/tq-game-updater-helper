@@ -12,7 +12,7 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 
 * `url` = direct download url
 * `specialFiles` = files that will have an [unique hash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
-* `ignoredFiles` = files that won't be included in the output json (`Array.prototype.includes()` was used, therefore if `script.kom` is included, files such as `drama_script.kom` will also be considered)
+* `ignoredFiles` = files that won't be included in the output json
 * `output` = name of the output file
 ```json
 {
