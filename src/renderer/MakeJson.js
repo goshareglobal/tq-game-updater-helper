@@ -1,3 +1,5 @@
+const { config } = require("process");
+
 module.exports = {
   MakeJson: () => {
     const fs = require("fs");
@@ -69,13 +71,16 @@ module.exports = {
             file = localFiles.push({ file, size, url });
           }
 
-          // Remove files that should not be listed
-          localFiles.forEach((e, i) => {
-            localFiles = localFiles.filter(
-              ({ file }) => !file.includes(configFile.ignoredFiles[i])
-            );
+          // Rename files
+          localFiles.forEach((e) => {
             e.file = e.file.replace(exeDir, "");
           });
+
+          // Remove files that should not be listed
+          localFiles = localFiles.filter(
+            (item) =>
+              !configFile.ignoredFiles.includes(item.file.replace(/\\/g, "/"))
+          );
 
           // Write JSON
           fs.writeFileSync(
