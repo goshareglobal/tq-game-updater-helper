@@ -3,7 +3,7 @@ module.exports = {
     const fs = require("fs");
     const path = require("path");
     const configFile = JSON.parse(
-      fs.readFileSync(process.env.PORTABLE_EXECUTABLE_DIR + "\\config.json")
+      fs.readFileSync(process.env.PORTABLE_EXECUTABLE_DIR + "\\egu-config.json")
     );
     let localArray = [];
 
@@ -65,7 +65,7 @@ module.exports = {
 
         // Write JSON
         fs.writeFileSync(
-          process.env.PORTABLE_EXECUTABLE_DIR + "\\gc-launcher.json",
+          process.env.PORTABLE_EXECUTABLE_DIR + "\\" + configFile.output,
           JSON.stringify(localArray)
         );
       });
