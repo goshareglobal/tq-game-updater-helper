@@ -3,7 +3,7 @@
   "productName": "Electron Game Updater Helper",
   "author": "Gustavo Kei Amemiya",
   "description": "Updater Helper",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "fileAssociations": {
     "description": "Updater Helper"
   },
