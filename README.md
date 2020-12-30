@@ -8,7 +8,7 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 
 If you don't want to compile it, [check out the releases page](https://github.com/gustavokei/electron-game-updater-helper/releases)
 
-## egu-config.json example
+## eguh-config.json example
 
 * `url` = direct download url
 * `specialFiles` = files that will have an [unique hash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
