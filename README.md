@@ -21,7 +21,7 @@ If you don't want to compile it, [check out the releases page](https://github.co
   "ignoredFiles": [
     "Electron-Game-Updater-Helper.exe",
     "Electron Game Updater Helper.exe",
-    "egu-config.json"
+    "eguh-config.json"
   ],
   "output": "egu-update-list.json"
 }
