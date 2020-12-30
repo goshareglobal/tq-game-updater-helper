@@ -22,7 +22,7 @@ module.exports = {
     // Get config.json file
     let configFile;
     try {
-      configFile = JSON.parse(fs.readFileSync(exeDir + "egu-config.json"));
+      configFile = JSON.parse(fs.readFileSync(exeDir + "eguh-config.json"));
     } catch (e) {
       alertError(e);
     }
