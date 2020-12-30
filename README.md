@@ -1,5 +1,5 @@
 # Electron Game Updater Helper
-![](https://i.imgur.com/2fxPONJ.gif)
+![](https://i.imgur.com/9ohs6JO.gif)
 
 This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 
