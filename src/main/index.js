@@ -1,5 +1,4 @@
 "use strict";
-import env from "common/env";
 import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import { format as formatUrl } from "url";
@@ -22,21 +21,11 @@ function createMainWindow() {
 
   let url;
 
-  if (env.isDevelopment) {
-    url = `http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`;
-    window.webContents.openDevTools();
-    window.webContents.on("devtools-opened", () => {
-      setImmediate(() => {
-        window.focus();
-      });
-    });
-  } else {
-    url = formatUrl({
-      pathname: path.join(__dirname, "index.html"),
-      protocol: "file",
-      slashes: true,
-    });
-  }
+  url = formatUrl({
+    pathname: path.join(__dirname, "index.html"),
+    protocol: "file",
+    slashes: true,
+  });
 
   window.on("error", (error) => {
     console.error({

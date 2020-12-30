@@ -3,17 +3,15 @@
   "productName": "Electron Game Updater Helper",
   "author": "Gustavo Kei Amemiya",
   "description": "Updater Helper",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "fileAssociations": {
     "description": "Updater Helper"
   },
   "license": "MIT",
   "scripts": {
-    "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "npm run compile && electron-builder --publish always && node build/delete-old-releases.js",
-    "dist:dir": "npm run dist --dir -c.compression=store -c.mac.identity=null",
-    "build": "npm run compile && electron-builder"
+    "build": "npm run compile && electron-builder",
+    "dist": "npm run compile && electron-builder --publish always && node build/delete-old-releases.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",

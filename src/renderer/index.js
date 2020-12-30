@@ -1,5 +1,3 @@
-import "@/env";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import WindowMain from "./WindowMain";
