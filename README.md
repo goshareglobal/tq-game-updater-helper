@@ -3,7 +3,7 @@
 
 This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 
-* Generates an update list JSON file (see egu-update-list.json) with data of all files within its directory
+* Generates an update list JSON file (see eguh-update-list.json) with data of all files within its directory
 * Highly customizable (see eguh-config.json)
 
 If you don't want to compile it, [check out the releases page](https://github.com/gustavokei/electron-game-updater-helper/releases)
@@ -21,13 +21,15 @@ If you don't want to compile it, [check out the releases page](https://github.co
   "ignoredFiles": [
     "Electron-Game-Updater-Helper.exe",
     "Electron Game Updater Helper.exe",
-    "eguh-config.json"
+    "eguh-config.json",
+    "eguh-update-list.json"
   ],
-  "output": "egu-update-list.json"
+  "output": "eguh-update-list.json"
 }
+
 ```
 
-## egu-update-list.json example
+## eguh-update-list.json example
 ```json
 {
   "file": "main.exe",
