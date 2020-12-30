@@ -1,37 +1,46 @@
-# Helper app for [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
-This portable Windows app generates a JSON file with data of all files within its directory.
+# Electron Game Updater Helper
+![](https://i.imgur.com/2fxPONJ.gif)
 
-[Icon](https://prefinem.com/simple-icon-generator/#eyJiYWNrZ3JvdW5kQ29sb3IiOiIjZmZmYTVjIiwiYm9yZGVyQ29sb3IiOiIjMjkyOTI5IiwiYm9yZGVyV2lkdGgiOiI0IiwiZXhwb3J0U2l6ZSI6IjI1NiIsImV4cG9ydGluZyI6ZmFsc2UsImZvbnRGYW1pbHkiOiJBcmlhbCIsImZvbnRQb3NpdGlvbiI6IjU5IiwiZm9udFNpemUiOiIyNiIsImZvbnRXZWlnaHQiOjYwMCwiaW1hZ2UiOiIiLCJpbWFnZU1hc2siOmZhbHNlLCJpbWFnZVNpemUiOjUwLCJzaGFwZSI6InNxdWFyZSIsInRleHQiOiJFR1VoIn0)
+This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 
-# output JSON
-```javascript
+[Icon](https://prefinem.com/simple-icon-generator/#eyJiYWNrZ3JvdW5kQ29sb3IiOiIjZmZmYTVjIiwiYm9yZGVyQ29sb3IiOiIjMjkyOTI5IiwiYm9yZGVyV2lkdGgiOiI0IiwiZXhwb3J0U2l6ZSI6IjI1NiIsImV4cG9ydGluZyI6ZmFsc2UsImZvbnRGYW1pbHkiOiJBcmlhbCIsImZvbnRQb3NpdGlvbiI6IjU5IiwiZm9udFNpemUiOiIyNiIsImZvbnRXZWlnaHQiOjYwMCwiaW1hZ2UiOiIiLCJpbWFnZU1hc2siOmZhbHNlLCJpbWFnZVNpemUiOjUwLCJzaGFwZSI6InNxdWFyZSIsInRleHQiOiJFR1VoIn0) made with [prefinem.com/simple-icon-generator](https://prefinem.com/simple-icon-generator/)
+
+* Generates an update list JSON file (see egu-update-list.json) with data of all files within its directory
+* Highly customizable (see egu-config.json)
+
+## egu-config.json example
+
+* `url` = direct download url
+* `specialFiles` = files that will have an [unique hash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
+* `ignoredFiles` = .gitignore variant
+* `output` = name of the output file
+```json
 {
-  "file":string,
-  "size":int,
-  "url":string,
-  "hash":string //optional
+  "url": "https://storage.googleapis.com/gc-client/gc-client/",
+  "specialFiles": ["main.exe", "stage/script.kom", "stage/char_script.kom"],
+  "ignoredFiles": [
+    "Electron-Game-Updater-Helper",
+    "Electron Game Updater Helper",
+    "egu-config.json"
+  ],
+  "output": "egu-update-list.json"
 }
 ```
 
-# egu-config JSON
-```JSON
+## egu-update-list.json example
+```json
 {
-  "url": "download-url",
-  "specialFiles": ["file.exe", "subdir/file.packed"],
-  "unlistedFiles": ["Electron-Game-Updater-Helper.exe", "egu-config.json"],
-  "output": "output.json"
+  "file": "main.exe",
+  "size": 16637952,
+  "hash": "kuc4HCv3bX7LCaRrloP4v2TjYpc=",
+  "url": "https://storage.googleapis.com/gc-client/gc-client/main.exe"
 }
 ```
-
-# .env
-```javascript
-{
-  "file":string,
-  "size":int,
-  "url":string,
-  "hash":string //optional
-}
+## Publishing
+If you want to publish your own release, I am using a script that deletes old releases at `build/delete-old-releases.js` and it requires a .env file
+### .env
+```dosini
+GH_OWNER=your-github-username
+GH_REPO=your-github-repository
+GH_TOKEN=your-github-token
 ```
-
-# Preview
-![app image](https://i.imgur.com/RaEw7x1.gif)
