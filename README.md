@@ -35,6 +35,6 @@ If you don't want to compile it, [check out the releases page](https://github.co
   "file": "main.exe",
   "size": 16637952,
   "hash": "kuc4HCv3bX7LCaRrloP4v2TjYpc=",
-  "url": "https://storage.googleapis.com/gc-client/gc-client/main.exe"
+  "url": "https://storage.googleapis.com/gc-client/main.exe"
 }
 ```
