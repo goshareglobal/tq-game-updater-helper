@@ -12,11 +12,11 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 
 * `url` = direct download url
 * `specialFiles` = files that will have an [unique hash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
-* `ignoredFiles` = .gitignore variant
+* `ignoredFiles` = files that won't be included in the output json (`Array.prototype.includes()` was used, therefore if `script.kom` is included, files such as `drama_script.kom` will also be considered)
 * `output` = name of the output file
 ```json
 {
-  "url": "https://storage.googleapis.com/gc-client/gc-client/",
+  "url": "https://storage.googleapis.com/gc-client/",
   "specialFiles": ["main.exe", "stage/script.kom", "stage/char_script.kom"],
   "ignoredFiles": [
     "Electron-Game-Updater-Helper",
