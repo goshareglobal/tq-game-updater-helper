@@ -72,7 +72,7 @@ module.exports = {
           // Remove files that should not be listed
           localFiles.forEach((e, i) => {
             localFiles = localFiles.filter(
-              ({ file }) => !file.includes(configFile.unlistedFiles[i])
+              ({ file }) => !file.includes(configFile.ignoredFiles[i])
             );
             e.file = e.file.replace(exeDir, "");
           });
