@@ -9,7 +9,7 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 * Generates an update list JSON file (see eguh-update-list.json) with data of all files within its directory
 * Highly customizable (see eguh-config.json)
 
-If you don't want to compile it, [check out the releases page](https://github.com/gustavokei/electron-game-updater-helper/releases)
+If you don't want to compile it, [download here](https://github.com/gustavokei/electron-game-updater-helper/releases)
 
 ## eguh-config.json example
 
