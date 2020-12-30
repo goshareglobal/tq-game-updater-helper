@@ -36,11 +36,3 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
   "url": "https://storage.googleapis.com/gc-client/gc-client/main.exe"
 }
 ```
-## Publishing
-If you want to publish your own release, I am using a script that deletes old releases at `build/delete-old-releases.js` and it requires a .env file
-### .env
-```dosini
-GH_OWNER=your-github-username
-GH_REPO=your-github-repository
-GH_TOKEN=your-github-token
-```
