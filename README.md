@@ -1,4 +1,7 @@
 # Electron Game Updater Helper
+
+Check out the [actual game updater](https://github.com/gustavokei/electron-game-updater-helper) that made this project necessary
+
 ![](https://i.imgur.com/9ohs6JO.gif)
 
 This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
