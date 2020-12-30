@@ -1,7 +1,7 @@
-import '@/env';
+import "@/env";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import WindowMain from "./WindowMain";
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<WindowMain />, document.getElementById("app"));

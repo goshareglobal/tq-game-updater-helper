@@ -4,7 +4,6 @@ import { app, BrowserWindow } from "electron";
 import * as path from "path";
 import { format as formatUrl } from "url";
 
-// global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow;
 
 function createMainWindow() {
@@ -44,6 +43,7 @@ function createMainWindow() {
       error,
     });
   });
+
   window.on("closed", () => {
     mainWindow = null;
   });
@@ -55,16 +55,12 @@ function createMainWindow() {
 
 function runApp() {
   mainWindow = createMainWindow();
-  //
-  // patcher.js
-  //
+
   mainWindow.webContents.on("did-finish-load", () => {
-    mainWindow.webContents.send("call-foo");
+    mainWindow.webContents.send("MakeJson");
   });
-  //
 }
 
-// create main BrowserWindow when electron is ready
 app.on("ready", () => {
   runApp();
 });

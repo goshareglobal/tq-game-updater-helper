@@ -1,9 +1,9 @@
 {
-  "name": "gc-launcher-helper",
-  "productName": "Grand Chase Launcher Helper",
+  "name": "electron-game-updater-helper",
+  "productName": "Electron Game Updater Helper",
   "author": "Gustavo Kei Amemiya",
   "description": "Updater Helper",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "fileAssociations": {
     "description": "Updater Helper"
   },
@@ -41,7 +41,7 @@
       "publish": [
         {
           "provider": "github",
-          "repo": "gc-launcher-helper",
+          "repo": "electron-game-updater-helper",
           "owner": "gustavokei",
           "private": false,
           "releaseType": "release"

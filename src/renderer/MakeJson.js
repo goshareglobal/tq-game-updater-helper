@@ -1,40 +1,42 @@
 module.exports = {
-  foo: () => {
+  MakeJson: () => {
     const fs = require("fs");
+    const path = require("path");
+    const configFile = JSON.parse(
+      fs.readFileSync(process.env.PORTABLE_EXECUTABLE_DIR + "\\config.json")
+    );
     let localArray = [];
 
-    //
-    // 'getFiles' Function
-    //
-    const path = require("path");
-    const getFiles = async (dir, fileList = []) => {
+    // Returns files list and takes the directory path as parameter
+    const getFiles = async (dir, filesList = []) => {
       const fs = require("fs").promises;
       const files = await fs.readdir(dir);
       for (const file of files) {
         const stat = await fs.stat(path.join(dir, file));
         if (stat.isDirectory())
-          fileList = await getFiles(path.join(dir, file), fileList);
-        else fileList.push(path.join(dir, file));
+          filesList = await getFiles(path.join(dir, file), filesList);
+        else filesList.push(path.join(dir, file));
       }
-      return fileList;
+      return filesList;
     };
-    //
 
-    //
-    // Generate JSON
-    //
+    // Main function
     getFiles(process.env.PORTABLE_EXECUTABLE_DIR + "\\").then((res) => {
       res.forEach((file) => {
+        // Define file size
         const size = fs.statSync(file).size;
+
+        // Define download url
         const url =
-          "https://storage.googleapis.com/gc-client/gc-client/" +
+          configFile.url +
           file
             .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
             .replace(/\\/g, "/");
 
-        const specialFiles = ["main.exe", "stage/script.kom"];
+        // Add all files
+        // If file should have a hash code, then it is considered special
         if (
-          specialFiles.indexOf(
+          configFile.specialFiles.indexOf(
             file
               .replace(process.env.PORTABLE_EXECUTABLE_DIR + "\\", "")
               .replace(/\\/g, "/")
@@ -44,20 +46,16 @@ module.exports = {
             .createHash("sha1")
             .update(fs.readFileSync(file))
             .digest("base64");
-
           file = localArray.push({ file, size, hash, url });
         } else {
+          // else, file is not special
           file = localArray.push({ file, size, url });
         }
 
-        const valuesToRemove = [
-          "Grand-Chase-Launcher-Helper",
-          "Grand Chase Launcher Helper",
-          "gc-launcher.json",
-        ];
+        // Remove files that should not be listed
         localArray.forEach((e, i) => {
           localArray = localArray.filter(
-            ({ file }) => !file.includes(valuesToRemove[i])
+            ({ file }) => !file.includes(configFile.unlistedFiles[i])
           );
           e.file = e.file.replace(
             process.env.PORTABLE_EXECUTABLE_DIR + "\\",
@@ -65,15 +63,14 @@ module.exports = {
           );
         });
 
+        // Write JSON
         fs.writeFileSync(
           process.env.PORTABLE_EXECUTABLE_DIR + "\\gc-launcher.json",
           JSON.stringify(localArray)
         );
       });
 
-      // Done
       document.getElementById("LoaderContent").innerHTML = "JSON ready!";
     });
-    //
   },
 };
