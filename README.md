@@ -1,4 +1,4 @@
-# A ElectronJS and ReactJS helper for [gustavokei/gc-launcher](https://github.com/gustavokei/gc-launcher)
+# Helper app for [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 This portable Windows app generates a JSON file with data of all files within its directory.
 
 # output JSON
