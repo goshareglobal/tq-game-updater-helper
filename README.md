@@ -8,6 +8,8 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 * Generates an update list JSON file (see egu-update-list.json) with data of all files within its directory
 * Highly customizable (see egu-config.json)
 
+If you don't want to compile it, (check out the releases page)[https://github.com/gustavokei/electron-game-updater-helper/releases]
+
 ## egu-config.json example
 
 * `url` = direct download url
