@@ -3,8 +3,6 @@
 
 This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 
-[Icon](https://prefinem.com/simple-icon-generator/#eyJiYWNrZ3JvdW5kQ29sb3IiOiIjZmZmYTVjIiwiYm9yZGVyQ29sb3IiOiIjMjkyOTI5IiwiYm9yZGVyV2lkdGgiOiI0IiwiZXhwb3J0U2l6ZSI6IjI1NiIsImV4cG9ydGluZyI6ZmFsc2UsImZvbnRGYW1pbHkiOiJBcmlhbCIsImZvbnRQb3NpdGlvbiI6IjU5IiwiZm9udFNpemUiOiIyNiIsImZvbnRXZWlnaHQiOjYwMCwiaW1hZ2UiOiIiLCJpbWFnZU1hc2siOmZhbHNlLCJpbWFnZVNpemUiOjUwLCJzaGFwZSI6InNxdWFyZSIsInRleHQiOiJFR1VoIn0) made with [prefinem.com/simple-icon-generator](https://prefinem.com/simple-icon-generator/)
-
 * Generates an update list JSON file (see egu-update-list.json) with data of all files within its directory
 * Highly customizable (see egu-config.json)
 
