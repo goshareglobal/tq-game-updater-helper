@@ -21,10 +21,12 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
   "ignoredFiles": [
     "Electron-Game-Updater-Helper.exe",
     "Electron Game Updater Helper.exe",
-    "egu-config.json"
+    "egu-config.json",
+    "subdir\\file.example"
   ],
   "output": "egu-update-list.json"
 }
+
 ```
 
 ## egu-update-list.json example
