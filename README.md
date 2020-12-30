@@ -12,7 +12,7 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
 
 * `url` = direct download url
 * `specialFiles` = files that will have an [unique hash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
-* `ignoredFiles` = files that won't be included in the output file
+* `ignoredFiles` = files that won't be included in the output file (for files in a subdir, do `subdir/file`)
 * `output` = name of the output file
 ```json
 {
@@ -21,12 +21,10 @@ This portable Windows app is supposed to be used with [gustavokei/electron-game-
   "ignoredFiles": [
     "Electron-Game-Updater-Helper.exe",
     "Electron Game Updater Helper.exe",
-    "egu-config.json",
-    "subdir\\file.example"
+    "egu-config.json"
   ],
   "output": "egu-update-list.json"
 }
-
 ```
 
 ## egu-update-list.json example
