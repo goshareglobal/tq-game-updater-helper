@@ -20,7 +20,7 @@ If you don't want to compile it, [download here](https://github.com/gustavokei/e
 
 ```json
 {
-  "url": "https://storage.googleapis.com/gc-client/",
+  "url": "https://cdn.grandchase.online/file/gc-client/s5/",
   "specialFiles": ["main.exe", "stage/script.kom", "stage/char_script.kom"],
   "ignoredFiles": [
     "Electron-Game-Updater-Helper.exe",
