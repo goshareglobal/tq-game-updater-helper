@@ -1,13 +1,13 @@
 # Electron Game Updater Helper
 
-Check out the [actual game updater](https://github.com/gustavokei/electron-game-updater) that made this project necessary
+This app was developed as a helper tool for my [electron-game-updater](https://github.com/gustavokei/electron-game-updater)
 
 ![](https://i.imgur.com/9ohs6JO.gif)
 
-This portable Windows app is supposed to be used with [gustavokei/electron-game-updater](https://github.com/gustavokei/electron-game-updater)
+A portable Windows app that:
 
-- Generates an update list JSON file (see eguh-update-list.json) with data of all files within its directory
-- Highly customizable (see eguh-config.json)
+- Generates an update list JSON file with data of all files within its directory
+- Highly customizable
 
 If you don't want to compile it, [download here](https://github.com/gustavokei/electron-game-updater-helper/releases)
 
